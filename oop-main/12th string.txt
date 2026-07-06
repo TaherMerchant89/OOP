@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main() {
+    char str1[100], str2[50];
+    cout << "Enter first string: ";
+    cin.getline(str1, sizeof(str1)); // Use getline to read a whole line
+
+    cout << "Enter second string: ";
+    cin.getline(str2, sizeof(str2)); // Use getline to read a whole line
+
+    // Appending str2 to str1 using strcat()
+    strcat(str1, str2);
+    cout << "After appending, the string is: " << str1 << endl;
+
+    // Reversing str1 using a loop
+    int len = strlen(str1);
+    for (int i = 0; i < len / 2; i++) {
+        swap(str1[i], str1[len - 1 - i]);
+    }
+    cout << "After reversing, the string is: " << str1 << endl;
+
+    // Comparing str1 and str2 using strcmp()
+    int comparison = strcmp(str1, str2);
+    if (comparison == 0)
+        cout << "Both strings are identical." << endl;
+    else if (comparison > 0)
+        cout << "str1 is greater than str2." << endl;
+    else
+        cout << "str1 is less than str2." << endl;
+
+    // Finding the length of str1 using strlen()
+    int length = strlen(str1);
+    cout << "The length of the string is: " << length << endl;
+
+    // Finding the first occurrence of 'a' in str1 using strchr()
+    char* firstOccurrence = strchr(str1, 'a');
+    if (firstOccurrence)
+        cout << "The first occurrence of 'a' is at position: " << (firstOccurrence - str1) << endl;
+
+    return 0;
+}
